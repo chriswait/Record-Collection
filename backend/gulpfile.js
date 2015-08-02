@@ -10,7 +10,7 @@ var rename = require('gulp-rename');
 var templateCache = require('gulp-angular-templatecache');
 
 var angular_app_root = 'app';
-var angular_app_module_js = angular_app_root + '/**/*.js';
+var angular_app_module_js = [angular_app_root + '/**/*.js', "!" + angular_app_root + '/templates.js'];
 var angular_app_module_html = angular_app_root + '/**/*.html';
 var angular_app_module_scss = angular_app_root + '/**/*.scss';
 
