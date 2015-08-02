@@ -9,13 +9,13 @@ class Record(DiscogsModel):
     title = models.CharField(max_length=200)
     year = models.IntegerField(null=True)
     thumb = models.URLField()
-    notes = models.TextField()
+    notes = models.TextField(null=True)
 
     artists = models.ManyToManyField('Artist')
     tracklist = models.ManyToManyField('Track')
     # genres = 
 
-    listening_notes = models.TextField()
+    listening_notes = models.TextField(null=True)
     rating = models.IntegerField(null=True)
 
     def __str__(self):
@@ -29,7 +29,7 @@ class Artist(DiscogsModel):
     # members = 
     # image = 
 
-    listening_notes = models.TextField()
+    listening_notes = models.TextField(null=True)
     rating = models.IntegerField(null=True)
 
     def __str__(self):
@@ -43,7 +43,7 @@ class Track(models.Model):
 
     # artists = models.ManyToManyField('Artist')
 
-    listening_notes = models.TextField()
+    listening_notes = models.TextField(null=True)
     rating = models.IntegerField(null=True)
 
     def __str__(self):
