@@ -1,0 +1,8 @@
+<div ng-controller='RecordController'>
+    Thumb: <img ng-src='{{record.thumb}}' /><br />
+    Title: {{record.title}}<br />
+    Year: {{record.year}}<br />
+    Artists: <artist ng-repeat='artist in record.artists'></artist><br />
+    Tracks: <track ng-repeat='track in record.tracklist'></track><br />
+    Notes: {{record.notes}}<br /><br /><br />
+</div>
