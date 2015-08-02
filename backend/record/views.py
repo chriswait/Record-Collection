@@ -1,4 +1,4 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from models import Record, Artist, Track
 from config import discogs_token
@@ -44,7 +44,7 @@ def fetch_record_details_with_barcode(barcode=""):
         return record
 
 def index(request):
-    return HttpResponse("Hello, World!")
+    return render(request, 'record/base.html')
 
 def add_record(request):
     if not(request.GET.get('barcode')): return 0
