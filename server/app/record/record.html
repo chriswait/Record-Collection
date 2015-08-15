@@ -1,5 +1,6 @@
 <div ng-controller='RecordController'>
-    <md-list-item class="record" layout="row">
+    <md-list-item class="record" layout="column">
+      <div layout="row">
         <div class="thumb_container">
             <img class="thumb" ng-src='{{record.thumb}}' /><br />
         </div>
@@ -18,8 +19,11 @@
                     </svg>
             </md-icon>
         </div>
+      </div>
+      <md-list>
+        <track ng-repeat='track in record.tracklist'></track><br />
+      </md-list>
         <div hide>
-            Tracks: <track ng-repeat='track in record.tracklist'></track><br />
             Notes: {{record.notes}}<br /><br /><br />
         </div>
     </md-list-item>
