@@ -1,0 +1,25 @@
+.record {
+    align-items: stretch;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.thumb_container {
+}
+
+.thumb {
+    width: 100px;
+}
+
+.record_info {
+    padding: 10px;
+}
+
+.more_button {
+  padding-top: 24px;
+  padding-right: 14px;
+    & md-icon {
+        padding: 10px;
+        border: 1px solid black;
+    }
+}

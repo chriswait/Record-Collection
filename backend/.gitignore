@@ -1,5 +1,6 @@
 logs/*
 !.gitkeep
+app/templates.js
 node_modules/
 bower_components/
 record/static/

@@ -1,6 +1,7 @@
 {% load staticfiles %}
 <html ng-app="recordApp">
     <head>
+        <meta name="viewport" content="width=device-width">
         <script src="{% static "record/vendor.js" %}"></script>
         <script src="{% static "record/templates.js" %}"></script>
         <script src="{% static "record/index.js" %}"></script>
@@ -8,7 +9,30 @@
         <link rel="stylesheet" type="text" href="{% static "record/index.css" %}">
     </head>
     <body ng-controller="MainController">
-        <collection>
-        </collection>
+        <md-content>
+            <md-toolbar style="background-color: rgb(184, 184, 184);">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <md-icon>
+                            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                            <path fill="#000000" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                            </svg>
+                        </md-icon>
+                    </md-button>
+                    <h2>
+                        <span>Collection</span>
+                    </h2>
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="More">
+                        <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <collection>
+            </collection>
+        </md-content>
     </body>
 </html>

@@ -1,8 +1,26 @@
 <div ng-controller='RecordController'>
-    Thumb: <img ng-src='{{record.thumb}}' /><br />
-    Title: {{record.title}}<br />
-    Year: {{record.year}}<br />
-    Artists: <artist ng-repeat='artist in record.artists'></artist><br />
-    Tracks: <track ng-repeat='track in record.tracklist'></track><br />
-    Notes: {{record.notes}}<br /><br /><br />
+    <md-list-item class="record" layout="row">
+        <div class="thumb_container">
+            <img class="thumb" ng-src='{{record.thumb}}' /><br />
+        </div>
+        <div class="record_info" flex>
+            <div layout="column">
+                <div ng-bind="record.title"></div>
+                <div layout="row">
+                    <p ng-repeat='artist in record.artists'>{{artist.name}} </p> <p> - </p> <p>{{record.year}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="more_button" style="width: 40px">
+            <md-icon>
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="#000000" d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" />
+                    </svg>
+            </md-icon>
+        </div>
+        <div hide>
+            Tracks: <track ng-repeat='track in record.tracklist'></track><br />
+            Notes: {{record.notes}}<br /><br /><br />
+        </div>
+    </md-list-item>
 </div>

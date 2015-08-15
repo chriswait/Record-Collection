@@ -22,7 +22,10 @@ def fetch_record_details_with_barcode(barcode=""):
         return existing
     except Record.DoesNotExist:
         # Process record
-        record = Record(discogs_id = release_discogs_id, title = release.title, year = release.year, thumb = release.thumb, notes = release.notes)
+        record_title = release.title
+        if (len(record_title.split('- '))>0):
+            record_title = release.title.split('- ')[1]
+        record = Record(discogs_id = release_discogs_id, title = record_title, year = release.year, thumb = release.thumb, notes = release.notes)
         record.save()
 
         # Process artists
