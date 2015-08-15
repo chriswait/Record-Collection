@@ -1,12 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from models import Record, Artist, Track
-from config import discogs_token
 
 def fetch_record_details_with_barcode(barcode=""):
     if not(barcode): return 0
 
     import discogs_client
+    from config import discogs_token
     client = discogs_client.Client('TestApp/0.1', user_token=discogs_token )
     releases = client.search('', barcode=barcode)
 
