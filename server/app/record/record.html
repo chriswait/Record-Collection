@@ -1,6 +1,6 @@
 <div ng-controller='RecordController'>
     <md-list-item class="record" layout="column">
-      <div layout="row">
+      <div layout="row" ng-click="is_expanded=!is_expanded">
         <div class="thumb_container">
             <img class="thumb" ng-src='{{record.thumb}}' /><br />
         </div>
@@ -20,7 +20,7 @@
             </md-icon>
         </div>
       </div>
-      <md-list>
+      <md-list ng-if="is_expanded">
         <track ng-repeat='track in record.tracklist'></track><br />
       </md-list>
         <div hide>

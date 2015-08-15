@@ -5,5 +5,6 @@ angular.module("recordApp")
         templateUrl: "record/record.html",
     };
 })
-.controller("RecordController", function() {
+.controller("RecordController", function($scope) {
+  $scope.is_expanded=false;
 });
