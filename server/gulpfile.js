@@ -68,4 +68,4 @@ gulp.task('material', function() {
 });
 
 // Default Task
-gulp.task('default', ['templates', 'lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['bower', 'material', 'templates', 'lint', 'sass', 'scripts', 'watch']);
