@@ -61,23 +61,20 @@ def update_item(request):
     if not(request.GET.get('type')): return 0
     if not(request.GET.get('id')): return 0
 
+    item = None
     type = request.GET.get('type')
     id = request.GET.get('id')
-    listening_notes = None
-    rating = None
 
-    if request.GET.get('listening_notes'):
-        listening_notes = request.GET.get('listening_notes')
-    if request.GET.get('rating'):
-        rating = request.GET.get('rating')
-
-    obj = None
+    # find the item
     if (type=="record"):
-        obj = Record.objects.get(id=id)
+        item = Record.objects.get(id=id)
     elif (type=="track"):
-        obj = Track.objects.get(id=id)
+        item = Track.objects.get(id=id)
+    if not(item): return redirect(index)
+    
+    # update the item
+    if (request.GET.get('listening_notes') != None): item.listening_notes = request.GET.get('listening_notes')
+    if (request.GET.get('rating') != None): item.rating = request.GET.get('rating')
+    item.save()
 
-    if (listening_notes): obj.listening_notes = listening_notes
-    if (rating): obj.rating = rating
-    obj.save()
     return redirect(index)
