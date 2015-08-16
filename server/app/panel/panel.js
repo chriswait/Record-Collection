@@ -1,4 +1,4 @@
-// Side Panel
+// Panel
 angular.module("recordApp")
 .directive("panel", function() {
     return {

@@ -4,26 +4,35 @@
             <h1 class="md-toolbar-tools" ng-bind="selected_item.title"></h1>
         </md-toolbar>
         <md-content layout-padding>
-            <form>
-                <md-input-container>
-                    <label for="listening_notes">Listening Notes</label>
-                    <textarea type="text" id="listening_notes" ng-model="selected_item.listening_notes"></textarea>
-                </md-input-container>
-                <md-input-container>
-                    <label for="rating">Rating</label>
-                    <input type="text" id="rating" ng-model="selected_item.rating"></input>
-                </md-input-container>
-                <div id="save_button">
-                    <md-button class="md-primary md-raised">Save Changes</md-button>
-                </div>
-            </form>
-            <md-card ng-if="selected_item.notes">
-                <md-card-content>
-                    <div id="notes">
-                        <pre ng-bind="selected_item.notes"></pre>
-                    </div>
-                </md-card-content>
-            </md-card>
+            <md-tabs md-dynamic-height>
+                <md-tab ng-if="selected_item.notes" label="Details">
+                    <md-content>
+                        <md-card>
+                            <md-card-content>
+                                <div id="notes">
+                                    <pre ng-bind="selected_item.notes"></pre>
+                                </div>
+                            </md-card-content>
+                        </md-card>
+                    </md-content>
+                </md-tab>
+                <md-tab label="My Notes">
+                    <md-content>
+                        <form>
+                            <md-input-container>
+                                <label for="listening_notes">Listening Notes</label>
+                                <textarea type="text" id="listening_notes" ng-model="selected_item.listening_notes"></textarea>
+                            </md-input-container>
+                            <div id="rating_container" layout="row">
+                                <label flex="33">Rating</label> <rating id="rating" rating-value="selected_item.rating" flex="66"></rating>
+                            </div>
+                            <div id="save_button">
+                                <md-button class="md-primary md-raised">Save Changes</md-button>
+                            </div>
+                        </form>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
         </md-content>
     </md-sidenav>
 </div>
