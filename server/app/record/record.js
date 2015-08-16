@@ -9,6 +9,6 @@ angular.module("recordApp")
     $scope.is_expanded = false;
     $scope.panel = function(event) {
         event.stopPropagation();
-        panel.open_panel($scope);
+        panel.open_item($scope);
     };
 }]);

@@ -1,11 +1,29 @@
 <div ng-controller='PanelController'>
     <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
         <md-toolbar>
-            <h1 class="md-toolbar-tools" ng-bind="selected_item.title"></h1>
+            <h1 class="md-toolbar-tools" ng-bind="selected_item.title ? selected_item.title : 'Add Item'"></h1>
         </md-toolbar>
         <md-content layout-padding>
             <md-tabs md-dynamic-height>
-                <md-tab label="My Notes">
+                <md-tab ng-if="!selected_item" label="Search">
+                    <md-content>
+                        <form>
+                            <md-input-container>
+                                <label for="search">Search</label>
+                                <input type="text" id="search" ng-model="search"></input>
+                            </md-input-container>
+                            <div id="add_button">
+                                <md-button class="md-primary md-raised" ng-click="add();">Add Item</md-button>
+                            </div>
+                        </form>
+                    </md-content>
+                </md-tab>
+                <md-tab ng-if="!selected_item" label="Barcode">
+                    <md-content>
+                        barcode
+                    </md-content>
+                </md-tab>
+                <md-tab ng-if="selected_item" label="My Notes">
                     <md-content>
                         <form>
                             <md-input-container>
@@ -16,7 +34,7 @@
                                 <label flex="33">Rating</label> <rating id="rating" rating-value="selected_item.rating" flex="66"></rating>
                             </div>
                             <div id="save_button">
-                                <md-button class="md-primary md-raised" ng-click="submit_update();">Save Changes</md-button>
+                                <md-button class="md-primary md-raised" ng-click="save();">Save Changes</md-button>
                             </div>
                         </form>
                     </md-content>

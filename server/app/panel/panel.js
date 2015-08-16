@@ -6,10 +6,10 @@ angular.module("recordApp")
     };
 })
 .service("panel", function($mdSidenav) {
-    var selected_item = {};
+    var selected_item;
     
     // Called from record or track controllers
-    var open_panel = function(scope_object) {
+    var open_item = function(scope_object) {
         // store the selected panel item
         if (scope_object.track) {
             selected_item = scope_object.track;
@@ -23,15 +23,33 @@ angular.module("recordApp")
         $mdSidenav('right').open();
     };
 
+    var add_item = function() {
+        $mdSidenav('right').open();
+        selected_item = null;
+    };
+
     return {
         selected_item: function () {
             return selected_item;
         },
-        open_panel: open_panel,
+        open_item: open_item,
+        add_item: add_item,
     };
 })
 .controller("PanelController", function($scope, $http, panel) {
-    $scope.selected_item = {};
+    $scope.search = "";
+    $scope.add = function() {
+        var url;
+        url = '/add_item';
+        var data = {
+            discogs_id: $scope.selected_item.id,
+        };
+        $http({
+            url: url,
+            method: "GET",
+            params: data,
+        });
+    };
 
     // Watch for changes to the selected item
     $scope.$watch(function() {
@@ -40,8 +58,10 @@ angular.module("recordApp")
         $scope.selected_item = value;
     });
 
-    $scope.submit_update = function() {
-        var url = '/update_item';
+    $scope.save = function() {
+        var url;
+        url = '/add_item';
+        url = '/update_item';
         var data = {
             type: $scope.selected_item.type,
             id: $scope.selected_item.id,
