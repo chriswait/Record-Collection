@@ -1,0 +1,29 @@
+<div ng-controller='PanelController'>
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+        <md-toolbar>
+            <h1 class="md-toolbar-tools" ng-bind="selected_item.title"></h1>
+        </md-toolbar>
+        <md-content layout-padding>
+            <form>
+                <md-input-container>
+                    <label for="listening_notes">Listening Notes</label>
+                    <textarea type="text" id="listening_notes" ng-model="selected_item.listening_notes"></textarea>
+                </md-input-container>
+                <md-input-container>
+                    <label for="rating">Rating</label>
+                    <input type="text" id="rating" ng-model="selected_item.rating"></input>
+                </md-input-container>
+                <div id="save_button">
+                    <md-button class="md-primary md-raised">Save Changes</md-button>
+                </div>
+            </form>
+            <md-card ng-if="selected_item.notes">
+                <md-card-content>
+                    <div id="notes">
+                        <pre ng-bind="selected_item.notes"></pre>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </md-content>
+    </md-sidenav>
+</div>

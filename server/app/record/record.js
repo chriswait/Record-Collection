@@ -5,6 +5,10 @@ angular.module("recordApp")
         templateUrl: "record/record.html",
     };
 })
-.controller("RecordController", function($scope) {
-  $scope.is_expanded=false;
-});
+.controller("RecordController", ['$scope','panel', function($scope, panel) {
+    $scope.is_expanded = false;
+    $scope.panel = function(event) {
+        event.stopPropagation();
+        panel.open_panel($scope);
+    };
+}]);

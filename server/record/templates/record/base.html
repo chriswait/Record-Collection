@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <html ng-app="recordApp">
     <head>
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <script src="{% static "record/vendor.js" %}"></script>
         <script src="{% static "record/templates.js" %}"></script>
         <script src="{% static "record/index.js" %}"></script>
@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text" href="{% static "record/index.css" %}">
     </head>
     <body ng-controller="MainController">
+        <panel></panel>
         <md-content>
             <md-toolbar style="background-color: rgb(184, 184, 184);">
                 <div class="md-toolbar-tools">
@@ -23,12 +24,6 @@
                         <span>Collection</span>
                     </h2>
                     <span flex></span>
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button" aria-label="More">
-                        <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
-                    </md-button>
                 </div>
             </md-toolbar>
             <collection>
