@@ -1,3 +1,3 @@
-var app = angular.module("recordApp", ['templates','ngMaterial']);
-app.controller("MainController", function($scope) {
+var app = angular.module("recordApp", ['templates','ngMaterial','ngMdIcons']);
+app.controller("MainController", function() {
 });

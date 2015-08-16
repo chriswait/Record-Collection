@@ -1,6 +1,6 @@
 .record {
     align-items: stretch;
-    padding: 10px;
+    padding: 10px !important;
     border: 1px solid black;
 }
 
@@ -16,10 +16,11 @@
 }
 
 .more_button {
-  padding-top: 24px;
-  padding-right: 14px;
-    & md-icon {
+    width: 60px;
+    align-items: center;
+    justify-content: center;
+    & ng-md-icon {
         padding: 10px;
-        border: 1px solid black;
+        border: 1px solid rgb(184, 184, 184);
     }
 }

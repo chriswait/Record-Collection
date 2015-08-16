@@ -11,12 +11,8 @@
         {{track.duration}}
       </div>
     </div>
-    <div class="more_button" style="width: 40px" ng-click="panel($event)">
-      <md-icon>
-        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="#000000" d="M16,12A2,2 0 0,1 18,10A2,2 0 0,1 20,12A2,2 0 0,1 18,14A2,2 0 0,1 16,12M10,12A2,2 0 0,1 12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12M4,12A2,2 0 0,1 6,10A2,2 0 0,1 8,12A2,2 0 0,1 6,14A2,2 0 0,1 4,12Z" />
-        </svg>
-      </md-icon>
+    <div class="more_button" ng-click="panel($event)" layout="column">
+        <ng-md-icon icon="more_horiz"></ng-md-icon>
     </div>
   </md-list-item>
 </div>
