@@ -23,11 +23,15 @@
     padding: 10px;
 }
 
+.record_title {
+    font-weight: bold;
+}
+
 .more_button {
     width: 60px;
     align-items: center;
     justify-content: center;
-    padding: 10px 0px 10px 0px;
+    padding: 8px 0px;
     & ng-md-icon {
         padding: 10px;
         border: 1px solid rgb(184, 184, 184);
