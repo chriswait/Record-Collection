@@ -1,27 +1,30 @@
 <div ng-controller='RecordController'>
-    <md-list-item class="record" layout="column">
-      <div layout="row" ng-click="is_expanded=!is_expanded">
+  <md-list-item class="record" layout="column">
+    <div class="container">
+      <div class="record_container" layout="row" ng-click="is_expanded=!is_expanded">
         <div class="thumb_container">
-            <img class="thumb" ng-src='{{record.thumb}}' /><br />
+          <img class="thumb" ng-src='{{record.thumb}}' /><br />
         </div>
         <div class="record_info" flex>
-            <div layout="column">
-                <div ng-bind="record.title"></div>
-                <div layout="row">
-                    <p ng-repeat='artist in record.artists'>{{artist.name}} </p> <p> - </p> <p>{{record.year}}</p>
-                </div>
+          <div layout="column">
+            <div ng-bind="record.title"></div>
+            <div layout="row">
+              <p ng-repeat='artist in record.artists'>{{artist.name}} </p> <p> - </p> <p>{{record.year}}</p>
             </div>
+          </div>
         </div>
 
+
         <div class="more_button" ng-click="panel($event)" layout="column">
-            <ng-md-icon icon="more_horiz"></ng-md-icon>
+          <ng-md-icon icon="more_horiz"></ng-md-icon>
         </div>
       </div>
       <md-list ng-if="is_expanded">
-        <track ng-repeat='track in record.tracklist'></track><br />
+        <track ng-repeat='track in record.tracklist'></track>
       </md-list>
         <div hide>
             Notes: {{record.notes}}<br /><br /><br />
         </div>
     </md-list-item>
+  </div>
 </div>
