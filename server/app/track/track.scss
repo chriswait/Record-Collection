@@ -2,6 +2,14 @@
   border-top: 1px solid black;
 }
 
+.more_button.track {
+    border-left: 1px solid black;
+    padding-left: 15px;
+    & ng-md-icon {
+        border: none;
+    }
+}
+
 .position {
   padding: 10px;
 }

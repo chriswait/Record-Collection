@@ -1,31 +1,29 @@
 <div ng-controller='RecordController'>
-  <md-list-item class="record" layout="column">
-    <div class="container">
-      <div class="record_container" layout="row" ng-click="is_expanded=!is_expanded">
-        <div class="thumb_container">
-          <img class="thumb" ng-src='{{record.thumb}}' /><br />
-        </div>
-        <div class="record_info" flex>
-          <div layout="column">
-            <div class="record_title" ng-bind="record.title"></div>
-            <div class="record_artist" layout="row">
-              <p ng-repeat='artist in record.artists'>{{artist.name}}  
+    <md-list-item class="record" layout="column">
+        <div class="container">
+            <div class="record_container" layout="row" ng-click="is_expanded=!is_expanded">
+                <div class="thumb_container">
+                    <img class="thumb" ng-src='{{record.thumb}}' /><br />
+                </div>
+                <div class="record_info" flex>
+                    <div layout="column">
+                        <div class="record_title" ng-bind="record.title"></div>
+                        <div class="record_artist" layout="row">
+                            <p ng-repeat='artist in record.artists'>{{artist.name}}
+                        </div>
+                        <div class="record_year">{{record.year}}</div>
+                    </div>
+                </div>
+                <div class="more_button" ng-click="panel($event)" layout="column">
+                    <ng-md-icon icon="more_horiz"></ng-md-icon>
+                </div>
             </div>
-            <div class="record_year">{{record.year}}</div>
-          </div>
-        </div>
-
-
-        <div class="more_button" ng-click="panel($event)" layout="column">
-          <ng-md-icon icon="more_horiz"></ng-md-icon>
-        </div>
-      </div>
-      <md-list ng-if="is_expanded">
-        <track ng-repeat='track in record.tracklist'></track>
-      </md-list>
-        <div hide>
-            Notes: {{record.notes}}<br /><br /><br />
-        </div>
-    </md-list-item>
-  </div>
+            <md-list class="track_list" ng-if="is_expanded">
+                <track ng-repeat='track in record.tracklist'></track>
+            </md-list>
+            <div hide>
+                Notes: {{record.notes}}<br /><br /><br />
+            </div>
+        </md-list-item>
+    </div>
 </div>

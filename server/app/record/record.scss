@@ -4,15 +4,15 @@
 }
 
 .record_container {
-  padding: 0px 16px;
+    padding: 0px 16px;
 }
 
 .container {
-  border: 1px solid black;
+    border: 1px solid black;
 }
 
 .thumb_container {
-  padding: 10px;
+    padding: 10px;
 }
 
 .thumb {
@@ -27,13 +27,22 @@
     font-weight: bold;
 }
 
+.track_list {
+    padding: initial;
+}
+
+.track_info {
+    min-height: initial;
+}
+
 .more_button {
     width: 60px;
     align-items: center;
     justify-content: center;
-    padding: 8px 0px;
+    padding: 0px 0px 0px 15px;
     & ng-md-icon {
         padding: 10px;
         border: 1px solid rgb(184, 184, 184);
     }
+
 }
