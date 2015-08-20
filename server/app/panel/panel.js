@@ -7,7 +7,7 @@ angular.module("recordApp")
 })
 .service("panel", function($mdSidenav) {
     var selected_item;
-    
+
     // Called from record or track controllers
     var open_item = function(scope_object) {
         // store the selected panel item
@@ -36,6 +36,14 @@ angular.module("recordApp")
         add_item: add_item,
     };
 })
+
+.controller("CheckboxController", function($scope) {
+    $scope.checkboxModel = {
+        downloaded : false,
+        todownload : false,
+    };
+})
+
 .controller("PanelController", function($scope, $http, panel) {
     $scope.search = "";
     $scope.add = function() {

@@ -11,14 +11,23 @@ md-tabs {
 }
 
 #save_button, #add_button {
-    text-align: center; 
+    text-align: center;
     padding: 10px;
 }
 
 #rating_container {
     align-items: center;
     padding: 0px 6px;
+    padding-bottom: 26px;
     color: rgba(0,0,0,0.26);
+}
+
+#checkbox_container {
+    padding: 0px 6px;
+    color: rgba(0,0,0,0.26);
+        & label {
+            padding-bottom: 26px;
+        }
 }
 
 md-card {
