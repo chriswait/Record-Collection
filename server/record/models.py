@@ -13,7 +13,8 @@ class Record(DiscogsModel):
 
     artists = models.ManyToManyField('Artist')
     tracklist = models.ManyToManyField('Track')
-    # genres = 
+    to_download = models.NullBooleanField()
+    downloaded = models.NullBooleanField()
 
     listening_notes = models.TextField(null=True)
     rating = models.IntegerField(null=True)

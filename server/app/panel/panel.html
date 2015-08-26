@@ -34,11 +34,11 @@
                                 <label flex="33">Rating</label> <rating id="rating" rating-value="selected_item.rating" flex="66"></rating>
                             </div>
                             <div id="checkbox_container" layout="column">
-                                <label>Downloaded:
-                                    <input type="checkbox" ng-model="checkboxModel.downloaded">
-                                </label>
                                 <label>To Download:
-                                    <input type="checkbox" ng-model="checkboxModel.todownload">
+                                    <input type="checkbox" ng-model="selected_item.to_download">
+                                </label>
+                                <label>Downloaded:
+                                    <input type="checkbox" ng-model="selected_item.downloaded">
                                 </label>
                             </div>
                             <div id="save_button">

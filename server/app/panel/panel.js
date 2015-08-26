@@ -37,13 +37,6 @@ angular.module("recordApp")
     };
 })
 
-.controller("CheckboxController", function($scope) {
-    $scope.checkboxModel = {
-        downloaded : false,
-        todownload : false,
-    };
-})
-
 .controller("PanelController", function($scope, $http, panel) {
     $scope.search = "";
     $scope.add = function() {

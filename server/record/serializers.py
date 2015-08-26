@@ -16,4 +16,4 @@ class RecordSerializer(serializers.ModelSerializer):
     tracklist = TrackSerializer(many=True)
     class Meta:
         model = Record
-        fields = ('id', 'discogs_id', 'title', 'year', 'thumb', 'notes', 'artists', 'tracklist', 'listening_notes', 'rating')
+        fields = ('id', 'discogs_id', 'title', 'year', 'thumb', 'notes', 'artists', 'tracklist', 'listening_notes', 'rating', 'to_download', 'downloaded')
