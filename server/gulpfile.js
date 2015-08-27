@@ -3,6 +3,7 @@ var gulp = require('gulp');
 
 // Include Our Plugins
 var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -29,7 +30,7 @@ gulp.task('templates', function () {
 gulp.task('lint', function() {
     return gulp.src(angular_app_module_js)
         .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter(stylish));
 });
 
 // Compile Our Sass
