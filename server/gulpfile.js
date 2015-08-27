@@ -16,6 +16,9 @@ var angular_app_module_js = [angular_app_root + '/**/*.js', "!" + angular_app_ro
 var angular_app_module_html = angular_app_root + '/**/*.html';
 var angular_app_module_scss = angular_app_root + '/**/*.scss';
 
+var bower_components_root = 'bower_components'
+var bower_components_js = bower_components_root + '/*';
+var bower_components_material_css = bower_components_root + '/angular-material/angular-material.css';
 
 var django_static_path = 'record/static/record/';
 
@@ -48,25 +51,28 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest(django_static_path));
 });
 
+// Fetch bower JS dependencies
+gulp.task('bower', function() {
+    gulp.src(bower_components_js)
+        .pipe(vendor('vendor.js'))
+        .pipe(gulp.dest(django_static_path)); 
+});
+
+// Fetch angular materialcss dependency
+gulp.task('material', function() {
+    gulp.src(bower_components_material_css)
+        .pipe(gulp.dest(django_static_path)); 
+});
+
 // Watch
 gulp.task('watch', function() {
     gulp.watch(angular_app_module_html, ['templates']);
     gulp.watch(angular_app_module_js, ['lint', 'scripts']);
     gulp.watch(angular_app_module_scss, ['sass']);
-});
-
-// Fetch bower JS dependencies
-gulp.task('bower', function() {
-    gulp.src('bower_components/*')
-        .pipe(vendor('vendor.js'))
-        .pipe(gulp.dest(django_static_path)); 
-});
-
-// Fetch bower JS dependencies
-gulp.task('material', function() {
-    gulp.src('bower_components/angular-material/angular-material.css')
-        .pipe(gulp.dest(django_static_path)); 
+    gulp.watch(bower_components_root + "/*/*.js", ['bower']);
+    gulp.watch(bower_components_material_css, ['material']);
 });
 
 // Default Task
-gulp.task('default', ['bower', 'material', 'templates', 'lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['templates', 'lint', 'sass', 'scripts', 'bower', 'material', 'watch']);
+
