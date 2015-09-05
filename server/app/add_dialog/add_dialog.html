@@ -14,9 +14,11 @@
                             </md-item-template>
                         </md-autocomplete>
                         <div  class="selected_summary" layout="row" ng-if="search_object.selected_item" id="item_add_preview">
-                            <img class="thumb" ng-src='{{search_object.selected_item.thumb}}' /><br />
-                            <span> {{search_object.selected_item.title}}</span>
-                            <span> {{search_object.selected_item.year}}</span>
+                            <img class="thumb" ng-src='{{search_object.selected_item.thumb}}' />
+                            <div class="selected_details" layout="column">
+                                <span class="name"> {{search_object.selected_item.title}}</span>
+                                <span> {{search_object.selected_item.year}}</span>
+                            </div>
                         </div>
                         <div ng-if="search_object.selected_item" id="add_button">
                             <md-button class="md-primary md-raised" ng-click="add_selected_item();">Add Item</md-button>
