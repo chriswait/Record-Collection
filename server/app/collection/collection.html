@@ -1,5 +1,23 @@
 <div ng-controller='CollectionController'>
+    <div id="filters">
+        <div id="filter_search">
+            <label>Search: <input ng-model="filter_text"></label>
+        </div>
+        <div id="sort_buttons">
+            <label>Sort:
+                <md-button ng-click="sort_rating()" class="md-raised md-primary">Rating</md-button>
+                <md-button ng-click="sort_title()" class="md-raised md-primary">Title</md-button>
+                <md-button ng-click="sort_year()" class="md-raised md-primary">Year</md-button>
+            </label>
+        </div>
+        <div id="filter_buttons">
+            <label>Sort:
+                <md-switch ng-model="filters.to_download">To Download</md-switch>
+                <md-switch ng-model="filters.unrated">Unrated</md-switch>
+            </label>
+        </div>
+    </div>
     <md-list class="collection">
-        <record ng-repeat='record in records'></record>
+        <record ng-repeat='record in records | filter:filter_records | orderBy:sort_order'></record>
     </md-list>
 </div>
