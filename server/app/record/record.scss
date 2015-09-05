@@ -1,14 +1,16 @@
 .record {
     align-items: stretch;
-    padding: 10px !important;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    padding: initial !important;
+}
+record:last-child>.record {
+    border-bottom: 1px solid black;
 }
 
 .record_container {
-    padding: 0px 16px;
-}
-
-.container {
-    border: 1px solid black;
+    padding: 0px 8px;
 }
 
 .thumb_container {
@@ -20,7 +22,7 @@
 }
 
 .record_info {
-    padding: 10px;
+    padding: 5px;
 }
 
 .record_title {
