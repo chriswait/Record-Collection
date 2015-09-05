@@ -36,7 +36,7 @@ angular.module("recordApp")
     };
 })
 
-.controller("PanelController", function($scope, $http, panel) {
+.controller("PanelController", ["$scope", "$http", "panel", "CollectionService", function($scope, $http, panel, CollectionService) {
     // Watch for changes to the selected item
     $scope.$watch(function() {
         return panel.selected_item();
@@ -65,9 +65,11 @@ angular.module("recordApp")
             params: $scope.selected_item,
         }).then(function(response) {
             console.log(response);
-            // TODO: Update our collection
-            panel.close();
+            if (response.data.status==1) {
+                CollectionService.remove_item_from_collection($scope.selected_item);
+                panel.close();
+            }
         });
     };
 
-});
+}]);
