@@ -1,0 +1,30 @@
+<md-dialog>
+    <md-dialog-content>
+        <md-tabs md-dynamic-height>
+            <md-tab ng-if="!selected_item" label="Search">
+                <md-content>
+                    <form ng-submit="$event.preventDefault()">
+                        <md-autocomplete md-search-text-change="null" md-delay=300 md-min-length=3 md-selected-item="search_object.selected_item" md-search-text="search_object.query" md-items="search_item in search()" md-item-text="search_item.title">
+                            <md-item-template>
+                                <span> {{search_item.title}} </span>
+                            </md-item-template>
+                        </md-autocomplete>
+                        <div ng-if="search_object.selected_item" id="item_add_preview">
+                            <img class="thumb" ng-src='{{search_object.selected_item.thumb}}' /><br />
+                            <span> {{search_object.selected_item.title}}</span>
+                            <span> {{search_object.selected_item.year}}</span>
+                        </div>
+                        <div id="add_button">
+                            <md-button class="md-primary md-raised" ng-click="add_selected_item();">Add Item</md-button>
+                        </div>
+                    </form>
+                </md-content>
+            </md-tab>
+            <md-tab ng-if="!search_object.selected_item" label="Barcode">
+                <md-content>
+                    <!-- TODO: Add barcode scanning -->
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-dialog-content>
+</md-dialog>

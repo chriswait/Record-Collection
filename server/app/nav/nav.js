@@ -5,8 +5,8 @@ angular.module("recordApp")
         templateUrl: "nav/nav.html",
     };
 })
-.controller("NavController", ['$scope', 'panel', function($scope, panel) {
-    $scope.add = function() {
-        panel.add_item();
+.controller("NavController", ['$scope', 'addDialog', function($scope, addDialog) {
+    $scope.show_add_dialog = function() {
+        addDialog.show_add_dialog();
     };
 }]);

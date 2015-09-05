@@ -23,9 +23,8 @@ angular.module("recordApp")
         $mdSidenav('right').open();
     };
 
-    var add_item = function() {
-        $mdSidenav('right').open();
-        selected_item = null;
+    var close = function() {
+        $mdSidenav('right').close();
     };
 
     return {
@@ -33,25 +32,11 @@ angular.module("recordApp")
             return selected_item;
         },
         open_item: open_item,
-        add_item: add_item,
+        close: close,
     };
 })
 
 .controller("PanelController", function($scope, $http, panel) {
-    $scope.search = "";
-    $scope.add = function() {
-        var url;
-        url = '/add_item';
-        var data = {
-            discogs_id: $scope.selected_item.id,
-        };
-        $http({
-            url: url,
-            method: "GET",
-            params: data,
-        });
-    };
-
     // Watch for changes to the selected item
     $scope.$watch(function() {
         return panel.selected_item();
@@ -61,18 +46,15 @@ angular.module("recordApp")
 
     $scope.save = function() {
         var url;
-        url = '/add_item';
         url = '/update_item';
-        var data = {
-            type: $scope.selected_item.type,
-            id: $scope.selected_item.id,
-            listening_notes: $scope.selected_item.listening_notes,
-            rating: $scope.selected_item.rating,
-        };
         $http({
             url: url,
             method: "GET",
-            params: data,
+            params: $scope.selected_item,
+        }).then(function(response) {
+            console.log(response);
+            $scope.selected_item = response.data;
+            panel.close();
         });
     };
 

@@ -27,8 +27,6 @@ class Record(DiscogsModel):
 
 class Artist(DiscogsModel): 
     name = models.CharField(max_length=200)
-    # members = 
-    # image = 
 
     listening_notes = models.TextField(null=True)
     rating = models.IntegerField(null=True)
@@ -41,8 +39,6 @@ class Track(models.Model):
     title = models.CharField(max_length=200)
     duration = models.CharField(max_length=200)
     position = models.CharField(max_length=20)
-
-    # artists = models.ManyToManyField('Artist')
 
     listening_notes = models.TextField(null=True)
     rating = models.IntegerField(null=True)

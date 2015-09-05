@@ -1,61 +1,23 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+import json
 from models import Record, Artist, Track
-
-def fetch_record_details_with_barcode(barcode=""):
-    if not(barcode): return 0
-
-    import discogs_client
-    from config import discogs_token
-    client = discogs_client.Client('TestApp/0.1', user_token=discogs_token )
-    releases = client.search('', barcode=barcode)
-
-    if not(len(releases)): return 0
-
-    # TODO: handle multiple barcode matches
-    release = releases[0]
-
-    release_discogs_id = release.id
-    try:
-        # Check if we already have this album
-        existing = Record.objects.get(discogs_id=release_discogs_id)
-        return existing
-    except Record.DoesNotExist:
-        # Process record
-        record_title = release.title
-        if (len(record_title.split('- '))>0):
-            record_title = release.title.split('- ')[1]
-        record = Record(discogs_id = release_discogs_id, title = record_title, year = release.year, thumb = release.thumb, notes = release.notes)
-        record.save()
-
-        # Process artists
-        for release_artist in release.artists:
-            artist = Artist(discogs_id=release_artist.id, name=release_artist.name)
-            artist.save()
-            record.artists.add(artist)
-
-        # Process tracklist
-        for release_track in release.tracklist:
-            track = Track()
-            track.position = release_track.position
-            track.title = release_track.title
-            track.duration = release_track.duration
-            track.save()
-            record.tracklist.add(track)
-
-        record.save()
-        return record
+from discogs import add_record_with_barcode, get_discogs_query_results, add_record_with_discogs_id
 
 def index(request):
     return render(request, 'record/base.html')
 
 def add_record(request):
-    if not(request.GET.get('barcode')): return 0
+    
+    if (request.GET.get('barcode')):
+        barcode = request.GET.get('barcode')
+        record = add_record_with_barcode(barcode)
+    elif (request.GET.get('discogs_id')):
+        discogs_id = request.GET.get('discogs_id')
+        record = add_record_with_discogs_id(discogs_id)
 
-    barcode = request.GET.get('barcode')
-    record = fetch_record_details_with_barcode(barcode)
     if not(record): return index(request)
-    return redirect(record)
+    else: return redirect(record)
 
 def update_item(request):
     if not(request.GET.get('type')): return 0
@@ -75,6 +37,17 @@ def update_item(request):
     # update the item
     if (request.GET.get('listening_notes') != None): item.listening_notes = request.GET.get('listening_notes')
     if (request.GET.get('rating') != None): item.rating = request.GET.get('rating')
+    if (type=="record"):
+        if (request.GET.get('to_download') != None):
+            item.to_download = (request.GET.get('to_download')=="true")
+        if (request.GET.get('downloaded') != None):
+            item.downloaded = (request.GET.get('downloaded')=="true")
     item.save()
 
-    return redirect(index)
+    return redirect(item)
+
+def search(request):
+    if not(request.GET.get('query')): return 0
+    query = request.GET.get('query')
+    results = get_discogs_query_results(query)
+    return HttpResponse(json.dumps(results))
