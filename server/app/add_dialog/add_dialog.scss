@@ -4,9 +4,16 @@
         height: 35px;
         width: 35px;
         }
-    & .title {
+    & .artist {
         padding: 0 5px;
     }
+    & .album_title {
+        padding-right: 5px;
+    }
+}
+
+.artist {
+    font-weight: bold;
 }
 
 .selected_summary {
@@ -18,10 +25,13 @@
         height: 80px;
         width: 80px;
     }
-    & .name {
-        font-weight: bold;
-        padding-bottom: 18px;
+    & .artist {
+        padding-bottom: 10px;
     }
+    & .album_title {
+        padding-bottom: 10px;
+    }
+
 }
 
 .selected_details {

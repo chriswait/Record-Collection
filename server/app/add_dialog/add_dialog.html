@@ -8,7 +8,8 @@
                             <md-item-template>
                                 <div class="search_options" layout="row">
                                     <img class="thumb" ng-src='{{search_item.thumb}}' />
-                                    <span class="title"> {{search_item.title}} </span>
+                                    <span class="artist"> {{search_item.artist}} </span>
+                                    <span class="album_title"> {{search_item.title}} </span>
                                     <span> ({{search_item.year}})</span>
                                 </div>
                             </md-item-template>
@@ -16,7 +17,8 @@
                         <div  class="selected_summary" layout="row" ng-if="search_object.selected_item" id="item_add_preview">
                             <img class="thumb" ng-src='{{search_object.selected_item.thumb}}' />
                             <div class="selected_details" layout="column">
-                                <span class="name"> {{search_object.selected_item.title}}</span>
+                                <span class="artist"> {{search_object.selected_item.artist}}</span>
+                                <span class="album_title"> {{search_object.selected_item.title}}</span>
                                 <span> {{search_object.selected_item.year}}</span>
                             </div>
                         </div>

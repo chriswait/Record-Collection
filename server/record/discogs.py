@@ -57,9 +57,13 @@ def get_discogs_query_results(query):
     for release in releases:
         if len(results)>5: break
         if (release.__class__.__name__ != "Release"): continue
+        if (len(release.title.split('- '))>1):
+            artist = release.title.split('- ')[0]
+            release_title = release.title.split('- ')[1]
         results.append({
             "discogs_id": release.id,
-            "title": release.title,
+            "title": release_title,
+            "artist": artist,
             "year": release.year,
             "thumb": release.thumb
         })
