@@ -7,6 +7,13 @@ from discogs import add_record_with_barcode, get_discogs_query_results, add_reco
 def index(request):
     return render(request, 'record/base.html')
 
+def delete_record(request):
+    if not(request.GET.get('id')): return 0
+    id = request.GET.get('id')
+    item = Record.objects.get(id=id)
+    item.delete()
+    return HttpResponse(json.dumps({"status":1}))
+
 def add_record(request):
     
     if (request.GET.get('barcode')):

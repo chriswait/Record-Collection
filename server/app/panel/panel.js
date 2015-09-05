@@ -45,8 +45,7 @@ angular.module("recordApp")
     });
 
     $scope.save = function() {
-        var url;
-        url = '/update_item';
+        var url = '/update_item';
         $http({
             url: url,
             method: "GET",
@@ -54,6 +53,19 @@ angular.module("recordApp")
         }).then(function(response) {
             console.log(response);
             $scope.selected_item = response.data;
+            panel.close();
+        });
+    };
+
+    $scope.delete = function() {
+        var url = '/delete_record';
+        $http({
+            url: url,
+            method: "GET",
+            params: $scope.selected_item,
+        }).then(function(response) {
+            console.log(response);
+            // TODO: Update our collection
             panel.close();
         });
     };
