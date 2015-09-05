@@ -1,0 +1,17 @@
+.search_options {
+    padding: 5px 0;
+    & .thumb {
+        height: 35px;
+        width: 35px;
+        }
+    & .title {
+        padding: 0 5px;
+    }
+}
+
+.selected_summary {
+    & .thumb {
+        height: 80px;
+        width: 80px;
+    }
+}
