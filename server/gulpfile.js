@@ -10,6 +10,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var templateCache = require('gulp-angular-templatecache');
 var vendor = require('gulp-concat-vendor');
+var autoprefixer = require('gulp-autoprefixer');
 
 var angular_app_root = 'app';
 var angular_app_module_js = [angular_app_root + '/**/*.js', "!" + angular_app_root + '/templates.js'];
@@ -40,6 +41,9 @@ gulp.task('lint', function() {
 gulp.task('sass', function() {
     return gulp.src(angular_app_module_scss)
         .pipe(sass())
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+        }))
         .pipe(concat('index.css'))
         .pipe(gulp.dest(django_static_path));
 });

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A project to store a collection of records",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/chriswait91/Record.git"
+    "type": "git",
+    "url": "https://github.com/chriswait91/Record.git"
   },
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "bower": "^1.5.2",
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.7.0",
+    "gulp-autoprefixer": "^3.0.1",
     "gulp-concat": "^2.6.0",
     "gulp-concat-vendor": "0.0.4",
     "gulp-jshint": "^1.11.2",
