@@ -2,7 +2,7 @@
 angular.module("recordApp")
 .directive("addDialog", function() {
 })
-.service("addDialog", function($mdDialog) {
+.service("addDialog", ['$mdDialog', 'CollectionService', function($mdDialog, CollectionService) {
     var AddDialogController =  function($scope, $mdDialog, $http, $q) {
         $scope.search_object = {
             query: "",
@@ -50,12 +50,11 @@ angular.module("recordApp")
             targetEvent: event,
             clickOutsideToClose: true
         }).then(function(result) {
-            console.log(result);
-            // TODO: Add the result to the connection on the client
+            CollectionService.add_item_to_collection(result);
         });
     };
 
     return {
         show_add_dialog: show_add_dialog,
     };
-});
+}]);

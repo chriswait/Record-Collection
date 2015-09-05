@@ -21,9 +21,23 @@ angular.module("recordApp")
         });
     };
 
+    var remove_item_from_collection = function(item) {
+        var index = collection.records.indexOf(item);
+        if (index > -1) {
+            collection.records.splice(index, 1);
+        }
+
+    };
+
+    var add_item_to_collection = function(item) {
+        collection.records.push(item);
+    };
+
     collectionServiceInstance = {
         collection: collection,
         load_collection: load_collection,
+        add_item_to_collection: add_item_to_collection,
+        remove_item_from_collection: remove_item_from_collection,
     };
     return collectionServiceInstance;
 

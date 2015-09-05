@@ -14,7 +14,7 @@
                             <span> {{search_object.selected_item.title}}</span>
                             <span> {{search_object.selected_item.year}}</span>
                         </div>
-                        <div id="add_button">
+                        <div ng-if="search_object.selected_item" id="add_button">
                             <md-button class="md-primary md-raised" ng-click="add_selected_item();">Add Item</md-button>
                         </div>
                     </form>
