@@ -4,7 +4,7 @@
             <md-tab ng-if="!selected_item" label="Search">
                 <md-content>
                     <form ng-submit="$event.preventDefault()">
-                        <md-autocomplete md-search-text-change="null" md-delay=300 md-min-length=3 md-selected-item="search_object.selected_item" md-search-text="search_object.query" md-items="search_item in search()" md-item-text="search_item.title">
+                        <md-autocomplete md-search-text-change="null" md-selected-item-change="null" md-delay=300 md-min-length=3 md-selected-item="search_object.selected_item" md-search-text="search_object.query" md-items="search_item in search()" md-item-text="search_item.title">
                             <md-item-template>
                                 <span> {{search_item.title}} </span>
                             </md-item-template>
