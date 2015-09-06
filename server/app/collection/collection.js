@@ -47,7 +47,7 @@ angular.module("recordApp")
     $scope.records = [];
 
     function update_records(new_records) {
-        if (new_records !== null) {
+        if (new_records !== undefined) {
             $scope.all_records = new_records;
         }
         $scope.records = $filter('orderBy')($scope.all_records, FilterService.filter_options.sort_order);
