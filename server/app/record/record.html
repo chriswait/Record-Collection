@@ -7,7 +7,7 @@
             <div layout="column">
                 <div class="record_title" ng-bind="record.title"></div>
                 <div class="record_artist" layout="row">
-                    <p ng-repeat='artist in record.artists'>{{artist.name}}
+                    <artist ng-repeat='artist in record.artists'></artist>
                 </div>
                 <div class="record_year">{{record.year}}</div>
             </div>

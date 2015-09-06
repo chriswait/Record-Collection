@@ -49,7 +49,7 @@ angular.module("recordApp")
             return false;
         }
         return false;
-    }
+    };
     var filter_records = function(records) {
         filters = FilterService.filter_options.filters;
         filter_text = FilterService.filter_options.filter_text;
