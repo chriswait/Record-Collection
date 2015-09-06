@@ -42,53 +42,33 @@ angular.module("recordApp")
     return collectionServiceInstance;
 
 })
-.controller("CollectionController", ['$scope', '$http', 'CollectionService', function($scope, $http, CollectionService) {
+.controller("CollectionController", ['$scope', '$http', '$filter', 'CollectionService', 'FilterService', function($scope, $http, $filter, CollectionService, FilterService) {
+    $scope.all_records = [];
     $scope.records = [];
+
+    function update_records(new_records) {
+        if (new_records != null) {
+            $scope.all_records = new_records;
+        }
+        $scope.records = $filter('orderBy')($scope.all_records, FilterService.filter_options.sort_order);
+        $scope.records = $filter('filterRecords')($scope.records);
+    }
+
+    // Watch for collection changes
     $scope.$watch(function() {
         return CollectionService.collection.records;
     }, function(newValue, oldValue, scope) {
         if (newValue != oldValue) {
-            $scope.records = newValue;
+            update_records(newValue);
         }
     }, true);
-
-    // Sorting
-    $scope.sort_order = "";
-    $scope.sort_title = function() { $scope.sort_order = "title"; };
-    $scope.sort_rating = function() { $scope.sort_order = "rating"; };
-    $scope.sort_year = function() { $scope.sort_order = "year"; };
-
-    $scope.filter_text = "";
-    $scope.filters = {
-        to_download: false,
-        unrated: false,
-    };
-    $scope.filter_records = function(record, index, array) {
-
-        if ($scope.filters.to_download && (!record.to_download || record.downloaded)) return false;
-        if ($scope.filters.unrated && record.rating != undefined) return false;
-
-        if ($scope.filter_text) {
-            var search = $scope.filter_text;
-            var search_terms = search.split(" ");
-            for (var i=0; i<search_terms.length; i++) {
-                var search_term = search_terms[i].toUpperCase();
-                var artist_match = false;
-                for (var artistIndex=0; artistIndex<record.artists.length; artistIndex++) {
-                    if (record.artists[artistIndex].name.toUpperCase().indexOf(search_term)!=-1) {
-                        artist_match = true;
-                        break;
-                    }
-                }
-                return (
-                    (record.title.toUpperCase().indexOf(search_term)!=-1) ||
-                    (record.year.toString().toUpperCase().indexOf(search_term)!=-1) ||
-                    artist_match
-                );
-            }
+    
+    // Watch for filter changes
+    $scope.$watch(function() {
+        return FilterService.filter_options;
+    }, function(newValue, oldValue, scope) {
+        if (newValue != oldValue) {
+            update_records();
         }
-        return true;
-    };
-
-
+    }, true);
 }]);

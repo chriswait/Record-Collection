@@ -5,7 +5,10 @@ angular.module("recordApp")
         templateUrl: "nav/nav.html",
     };
 })
-.controller("NavController", ['$scope', 'addDialog', function($scope, addDialog) {
+.controller("NavController", ['$scope', 'addDialog', '$mdSidenav', function($scope, addDialog, $mdSidenav) {
+    $scope.show_menu = function() {
+        $mdSidenav("left").open();
+    };
     $scope.show_add_dialog = function() {
         addDialog.show_add_dialog();
     };
