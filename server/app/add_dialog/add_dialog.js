@@ -5,7 +5,7 @@ angular.module("recordApp")
 .controller("AddDialogController", function($scope, $mdDialog, $http, $q) {
     $scope.search_object = {
         query: "",
-        selected_item: {},
+        selected_item: null,
     };
 
     $scope.add_selected_item = function() {
