@@ -2,49 +2,48 @@
 angular.module("recordApp")
 .directive("addDialog", function() {
 })
-.service("addDialog", ['$mdDialog', 'CollectionService', function($mdDialog, CollectionService) {
-    var AddDialogController =  function($scope, $mdDialog, $http, $q) {
-        $scope.search_object = {
-            query: "",
-            selected_item: {},
-        };
-
-        $scope.add_selected_item = function() {
-            var item = $scope.search_object.selected_item;
-            var discogs_id = item.discogs_id;
-            var data = {
-                discogs_id: discogs_id,
-            };
-            $http({
-                url: "/add_record",
-                method: "GET",
-                params: data
-            }).then(function(response) {
-                $mdDialog.hide(response.data);
-            });
-        };
-
-        $scope.search = function() {
-            var defer = $q.defer();
-            var query = $scope.search_object.query;
-            var data = {
-                query: query,
-            };
-            $http({
-                url: "/search",
-                method: "GET",
-                params: data
-            }).then(function(response) {
-                defer.resolve(response.data);
-            });
-            return defer.promise;
-        };
-
+.controller("AddDialogController", function($scope, $mdDialog, $http, $q) {
+    $scope.search_object = {
+        query: "",
+        selected_item: {},
     };
+
+    $scope.add_selected_item = function() {
+        var item = $scope.search_object.selected_item;
+        var discogs_id = item.discogs_id;
+        var data = {
+            discogs_id: discogs_id,
+        };
+        $http({
+            url: "/add_record",
+            method: "GET",
+            params: data
+        }).then(function(response) {
+            $mdDialog.hide(response.data);
+        });
+    };
+
+    $scope.search = function() {
+        var defer = $q.defer();
+        var query = $scope.search_object.query;
+        var data = {
+            query: query,
+        };
+        $http({
+            url: "/search",
+            method: "GET",
+            params: data
+        }).then(function(response) {
+            defer.resolve(response.data);
+        });
+        return defer.promise;
+    };
+
+})
+.service("addDialog", ['$mdDialog', 'CollectionService', function($mdDialog, CollectionService) {
 
     var show_add_dialog = function(event) {
         $mdDialog.show({
-            controller: AddDialogController,
             templateUrl: 'add_dialog/add_dialog.html',
             parent: angular.element(document.body),
             targetEvent: event,
