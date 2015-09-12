@@ -74,4 +74,12 @@ angular.module("recordApp")
     }, function(value) {
         $scope.filter_options = value;
     }, true);
+
+    $scope.select_tab = function(sort_key) {
+        if (sort_key==$scope.filter_options.sort_order) {
+            $scope.filter_options.sort_order = "";
+        } else {
+            $scope.filter_options.sort_order = sort_key;
+        }
+    };
 }]);
