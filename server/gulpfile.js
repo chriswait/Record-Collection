@@ -7,6 +7,7 @@ var stylish = require('jshint-stylish');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var templateCache = require('gulp-angular-templatecache');
 var autoprefixer = require('gulp-autoprefixer');
@@ -67,6 +68,7 @@ gulp.task('scripts', function() {
 gulp.task('npm-js', function() {
     gulp.src(node_modules_js)
         .pipe(concat("vendor.js"))
+        .pipe(uglify())
         .pipe(gulp.dest(django_static_path));
 });
 
@@ -74,6 +76,7 @@ gulp.task('npm-js', function() {
 gulp.task('npm-css', function() {
     gulp.src(node_modules_css)
         .pipe(concat("vendor.css"))
+        .pipe(minifyCss())
         .pipe(gulp.dest(django_static_path));
 });
 
