@@ -28,7 +28,7 @@ angular.module("recordApp")
         // Check filters
         if (filters.to_download && (!record.to_download || record.downloaded))
             return false;
-        if (filters.unrated && record.rating !== undefined)
+        if (filters.unrated && record.rating != null)
             return false;
 
         if (!filter_text) return true;

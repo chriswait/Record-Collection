@@ -1,18 +1,16 @@
 <div ng-controller="FilterController" id="filters">
     <div ng-click="show_filters = !show_filters">Filters</div>
-    <div layout="column" ng-show="show_filters">
-        <div flex>
+    <div layout="row" layout-align="space-between center" layout-sm="column" layout-align-sm="center start" ng-show="show_filters">
+        <div>
             <md-input-container>
                 <label>Search</label>
                 <input ng-model="filter_options.filter_text">
             </md-input-container>
         </div>
-        <div flex>
-            <md-select placeholder="Sort" ng-model="filter_options.sort_order">
-                <md-option ng-repeat="key in filter_options.sort_keys" value="{{key}}">{{key | capitalize}}</md-option>
-            </md-select>
+        <div>
+            <md-button ng-class="{'md-primary' : key==filter_options.sort_order}" ng-repeat="key in filter_options.sort_keys" ng-click="filter_options.sort_order=key" value="{{key}}">{{key | capitalize}}</md-button>
         </div>
-        <div flex>
+        <div layout="row" layout-sm="column">
             <md-switch ng-model="filter_options.filters.to_download">To Download</md-switch>
             <md-switch ng-model="filter_options.filters.unrated">Unrated</md-switch>
         </div>
