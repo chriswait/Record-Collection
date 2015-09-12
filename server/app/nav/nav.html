@@ -6,9 +6,11 @@
             </md-button>
             <h2><span>Collection</span></h2>
             <span flex></span>
+            <div class="filter_header" ng-click="show_filters = !show_filters">Filters</div>
             <md-button class="md-icon-button" aria-label="Settings" ng-click="show_add_dialog();">
                 <ng-md-icon icon="add_box" style="fill:white;"></ng-md-icon> 
             </md-button>
         </div>
     </md-toolbar>
+    <filter ng-show="show_filters"></filter>
 </div>
