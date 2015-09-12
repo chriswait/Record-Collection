@@ -52,10 +52,11 @@ def add_record_with_discogs_id(discogs_id=""):
     return add_record(release)
 
 def get_discogs_query_results(query):
+    num_results = 10
     results = []
     releases = client.search(query)
     for release in releases:
-        if len(results)>5: break
+        if len(results)>num_results: break
         if (release.__class__.__name__ != "Release"): continue
         if (len(release.title.split('- '))>1):
             artist = release.title.split('- ')[0]
