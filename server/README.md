@@ -1,17 +1,13 @@
 ## Dependencies:
 * Django - via pip
 * discogs-client - via pip
-* Bower - via NPM (globally)
 * Gulp - via NPM (globally)
-* Angular-Material - via Bower
 
 ## Install
 ```
 pip install -r requirements.txt
 npm install
-npm install -g bower
 npm install -g gulp
-bower install
 gulp
 python manage.py migrate
 python manage.py runserver
