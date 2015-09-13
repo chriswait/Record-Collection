@@ -2,13 +2,16 @@
     <md-toolbar style="background-color: rgb(184, 184, 184);">
         <div class="md-toolbar-tools">
             <md-button class="md-icon-button" ng-click="show_menu();">
-                <ng-md-icon icon="menu" style="fill:white;"></ng-md-icon> 
+                <ng-md-icon icon="menu" style="fill:white;"></ng-md-icon>
             </md-button>
             <h2><span>Collection</span></h2>
             <span flex></span>
-            <div class="filter_header" ng-click="show_filters = !show_filters">Filters</div>
+            <div class="filter_button" layout="row" layout-align="center center" ng-click="show_filters = !show_filters">
+                <div>Filters</div>
+                <div class="arrow-down"></div>
+            </div>
             <md-button class="md-icon-button" aria-label="Settings" ng-click="show_add_dialog();">
-                <ng-md-icon icon="add_box" style="fill:white;"></ng-md-icon> 
+                <ng-md-icon icon="add_box" style="fill:white;"></ng-md-icon>
             </md-button>
         </div>
     </md-toolbar>
