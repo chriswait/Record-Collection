@@ -10,9 +10,13 @@ md-tabs {
     }
 }
 
-#save_button, #add_button, #delete_button {
+#save_button_container, #add_button, #delete_button_container {
     text-align: center;
     padding: 10px;
+}
+
+#delete_button_container {
+    padding-top: 40px;
 }
 
 #rating_container {
@@ -35,4 +39,16 @@ md-card {
 }
 md-card md-card-content {
     padding: 8px;
+}
+
+.button {
+    background-color: rgba(0, 0, 0, 0.26);
+}
+
+.notes_container {
+    padding: 10px;
+    margin: 10px 0;
+        & #save_button_container {
+            padding-bottom: 0;
+        }
 }
