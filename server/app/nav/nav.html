@@ -6,9 +6,9 @@
             </md-button>
             <h2><span>Collection</span></h2>
             <span flex></span>
-            <div class="filter_button" layout="row" ng-click="show_filters = !show_filters; drop_up_icon = !drop_up_icon; drop_down_icon = !drop_down_icon">Filters
-                <ng-md-icon ng-hide="drop_down_icon" icon="arrow_drop_down" style="fill:white;"></ng-md-icon>
-                <ng-md-icon ng-show="drop_up_icon" icon="arrow_drop_up" style="fill:white;"></ng-md-icon>
+            <div class="filter_button" layout="row" ng-click="show_filters = !show_filters;">Filters
+                <ng-md-icon ng-show="!show_filters" icon="arrow_drop_down" style="fill:white;"></ng-md-icon>
+                <ng-md-icon ng-show="show_filters" icon="arrow_drop_up" style="fill:white;"></ng-md-icon>
             </div>
             <md-button class="md-icon-button" aria-label="Settings" ng-click="show_add_dialog();">
                 <ng-md-icon icon="add_box" style="fill:white;"></ng-md-icon>
