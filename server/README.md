@@ -5,6 +5,8 @@
 
 ## Install
 ```
+virtualenv --no-site-packages --distribute venv
+source venv/bin/activate
 pip install -r requirements.txt
 npm install
 npm install -g gulp
