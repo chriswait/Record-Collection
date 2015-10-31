@@ -10,7 +10,7 @@ angular.module("recordApp")
 
     $scope.add_selected_item = function() {
         var item = $scope.search_object.selected_item;
-        var discogs_id = item.discogs_id;
+        var discogs_id = item.id;
         var data = {
             discogs_id: discogs_id,
         };
@@ -42,6 +42,10 @@ angular.module("recordApp")
             defer.resolve(response.data.results);
         });
         return defer.promise;
+    };
+
+    $scope.focus_add_button = function() {
+        angular.element(document.getElementById("add_button")).focus();
     };
 
 })

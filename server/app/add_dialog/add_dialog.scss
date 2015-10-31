@@ -1,4 +1,13 @@
-.search_options {
+.add_dialog {
+    min-width: 300px;
+    min-height: 270px;
+
+    & md-autocomplete {
+        padding: 10px;
+    }
+}
+
+.search_result_row {
     padding: 5px 0;
     & .thumb {
         height: 35px;
@@ -12,11 +21,7 @@
     }
 }
 
-.artist {
-    font-weight: bold;
-}
-
-.selected_summary {
+.selected_item {
     margin-top: 5px;
     padding: 10px 5px;
     background-color: rgb(250,250,250);
@@ -27,13 +32,13 @@
     }
     & .artist {
         padding-bottom: 10px;
+        font-weight: bold;
     }
     & .album_title {
         padding-bottom: 10px;
     }
-
+    & .selected_details {
+        padding: 0 10px;
+    }
 }
 
-.selected_details {
-    padding: 0 10px;
-}
