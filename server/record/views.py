@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import json
 from models import Record, Artist, Track
-from discogs import add_record_with_barcode, get_discogs_query_results, add_record_with_discogs_id
+from discogs import add_record_with_barcode,  add_record_with_discogs_id, get_discogs_search_json
 
 def index(request):
     return render(request, 'record/base.html')
@@ -15,7 +15,6 @@ def delete_record(request):
     return HttpResponse(json.dumps({"status":1}))
 
 def add_record(request):
-    
     if (request.GET.get('barcode')):
         barcode = request.GET.get('barcode')
         record = add_record_with_barcode(barcode)
@@ -56,5 +55,5 @@ def update_item(request):
 def search(request):
     if not(request.GET.get('query')): return 0
     query = request.GET.get('query')
-    results = get_discogs_query_results(query)
-    return HttpResponse(json.dumps(results))
+    response = get_discogs_search_json(query)
+    return HttpResponse(response)

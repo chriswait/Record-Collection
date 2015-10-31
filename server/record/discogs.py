@@ -1,10 +1,11 @@
-from models import Record, Artist, Track
 import discogs_client
-from config import discogs_token
+from config import discogs_token, discogs_key, discogs_secret
+from requests import get
 
-client = discogs_client.Client('TestApp/0.1', user_token=discogs_token )
+client = discogs_client.Client('TestApp/0.1 +http://records.chriswait.net', user_token=discogs_token )
 
 def add_record(release):
+    from models import Record, Artist, Track
     release_discogs_id = release.id
     try:
         # Check if we already have this album
@@ -51,21 +52,9 @@ def add_record_with_discogs_id(discogs_id=""):
     if not(release): return 0
     return add_record(release)
 
-def get_discogs_query_results(query):
-    num_results = 10
-    results = []
-    releases = client.search(query)
-    for release in releases:
-        if len(results)>num_results: break
-        if (release.__class__.__name__ != "Release"): continue
-        if (len(release.title.split('- '))>1):
-            artist = release.title.split('- ')[0]
-            release_title = release.title.split('- ')[1]
-        results.append({
-            "discogs_id": release.id,
-            "title": release_title,
-            "artist": artist,
-            "year": release.year,
-            "thumb": release.thumb
-        })
-    return results
+def get_discogs_search_json(query):
+    url = "https://api.discogs.com/database/search?q=%s&type=release&key=%s&secret=%s" % (query, discogs_key, discogs_secret)
+    headers = { "User-Agent": "TestApp/0.1 +http://records.chriswait.net"}
+    request = get(url, headers=headers)
+    json = request.text
+    return json
