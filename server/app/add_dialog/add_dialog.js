@@ -1,7 +1,5 @@
 // Add Dialog
 angular.module("recordApp")
-.directive("addDialog", function() {
-})
 .controller("AddDialogController", function($scope, $mdDialog, $http, $q) {
     $scope.search_object = {
         query: "",
