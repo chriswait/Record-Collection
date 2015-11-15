@@ -1,23 +1,6 @@
 md-backdrop, md-sidenav {
     position: fixed;
 }
-md-tabs {
-    min-height: 100%;
-}
-#notes {
-    & pre {
-        white-space: pre-wrap;
-    }
-}
-
-#save_button_container, #add_button, #delete_button_container {
-    text-align: center;
-    padding: 10px;
-}
-
-#delete_button_container {
-    padding-top: 40px;
-}
 
 #rating_container {
     align-items: center;
@@ -34,21 +17,26 @@ md-tabs {
         }
 }
 
-md-card {
-    margin: initial;
-}
-md-card md-card-content {
-    padding: 8px;
-}
-
-.button {
-    background-color: rgba(0, 0, 0, 0.26);
-}
 
 .notes_container {
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 0px;
         & #save_button_container {
             padding-bottom: 0;
         }
 }
+
+md-card {
+    margin: initial;
+}
+
+md-card md-card-content {
+    padding: 8px;
+}
+
+#sleeve_notes {
+    & pre {
+        white-space: pre-wrap;
+    }
+}
+
