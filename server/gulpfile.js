@@ -22,11 +22,11 @@ var node_modules_js = [
     node_modules_root + "/angular/angular.js",
     node_modules_root + "/angular-animate/angular-animate.js",
     node_modules_root + "/angular-aria/angular-aria.js",
-    node_modules_root + "/angular-material/angular-material.js",
+    node_modules_root + "/angular-material-source/dist/angular-material.js",
     node_modules_root + "/angular-material-icons/angular-material-icons.js",
 ];
 var node_modules_css = [
-    node_modules_root + "/angular-material/angular-material.css",
+    node_modules_root + "/angular-material-source/dist/angular-material.css",
     node_modules_root + "/angular-material-icons/angular-material-icons.css",
 ];
 
@@ -68,7 +68,7 @@ gulp.task('scripts', function() {
 gulp.task('npm-js', function() {
     gulp.src(node_modules_js)
         .pipe(concat("vendor.js"))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest(django_static_path));
 });
 
