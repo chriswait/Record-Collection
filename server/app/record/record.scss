@@ -1,52 +1,18 @@
 .record {
-    align-items: stretch;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    padding: initial !important;
-}
+    align-items: stretch !important;
+    padding: 5px 10px;
 
-record:last-child>.record {
-    border-bottom: 1px solid black;
-}
+    &:focus, &:active {
+        outline: none !important;
+    }
 
-.record_container {
-    padding: 0px 8px;
-}
+    & .thumb {
+        width: 80px;
+        height: 80px;
+    }
 
-.thumb_container {
-    padding: 10px;
-}
-
-.thumb {
-    width: 100px;
-    height: 100px;
-}
-
-.record_info {
-    padding: 5px;
-}
-
-.record_title {
-    font-weight: bold;
-}
-
-.track_list {
-    padding: initial;
-}
-
-.track_info {
-    min-height: initial;
-}
-
-.more_button {
-    width: 60px;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 0px 0px 15px;
-    & ng-md-icon {
-        padding: 10px;
-        border: 1px solid rgb(184, 184, 184);
-        outline: none;
+    & .record_details {
+        padding: 0px 10px;
     }
 }
+

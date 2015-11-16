@@ -2,6 +2,7 @@
 angular.module("recordApp")
 .directive("track", function() {
     return {
+        replace: true,
         templateUrl: 'track/track.html',
     };
 })

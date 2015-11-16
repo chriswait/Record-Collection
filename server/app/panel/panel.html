@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </form>
-                <md-card>
+                <md-card ng-if="selected_item.notes">
                     <md-card-content>
                         <div id="sleeve_notes">
                             <pre ng-bind="selected_item.notes"></pre>

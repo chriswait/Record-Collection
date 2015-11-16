@@ -1,22 +1,16 @@
-.track_info {
-    border-top: 1px solid black;
-    padding: 0px 8px !important;
-}
+.track {
+    align-items: stretch;
+    padding: 0px 10px;
 
-.more_button.track {
-    border-left: 1px solid black;
-    padding-left: 15px;
-    & ng-md-icon {
-        border: none;
+    & .track_details {
+        & .position, & .title, & .duration {
+            padding: 0px 10px;
+        }
     }
-}
-
-.position {
-    padding: 10px;
-}
-.title {
-    padding: 10px;
-}
-.duration {
-    padding: 10px;
+    & .sleeve_notes {
+        padding: 0px 5px;
+        & pre {
+            margin: 5px 0px;
+        }
+    }
 }

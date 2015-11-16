@@ -12,26 +12,20 @@ md-backdrop, md-sidenav {
 #checkbox_container {
     padding: 0px 6px;
     color: rgba(0,0,0,0.26);
-        & label {
-            padding-bottom: 26px;
-        }
+
+    & label {
+        padding-bottom: 26px;
+    }
 }
 
 
 .notes_container {
     padding: 10px;
     margin: 10px 0px;
-        & #save_button_container {
-            padding-bottom: 0;
-        }
-}
 
-md-card {
-    margin: initial;
-}
-
-md-card md-card-content {
-    padding: 8px;
+    & #save_button_container {
+        padding-bottom: 0;
+    }
 }
 
 #sleeve_notes {

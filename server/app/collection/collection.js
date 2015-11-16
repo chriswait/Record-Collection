@@ -2,6 +2,7 @@
 angular.module("recordApp")
 .directive("collection", function() {
     return {
+        replace: true,
         templateUrl: 'collection/collection.html',
     };
 })

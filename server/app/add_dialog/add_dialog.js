@@ -22,11 +22,6 @@ angular.module("recordApp")
     };
 
     $scope.search = function() {
-        var discogs_token = "zuQANhNrWlWYklhbTDegUikiOhUpFqtuUlSqANKA";
-        var discogs_key = "IaaLRWaOYTaeyvzjmTdj";
-        var discogs_secret = "lWXLrYJSstLnupjqHcdWlQftITGvsqwF";
-        var discogs_search_url = "";
-
         var defer = $q.defer();
         var query = $scope.search_object.query;
         var data = {
