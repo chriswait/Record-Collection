@@ -4,38 +4,35 @@
             <h1 class="md-toolbar-tools" ng-bind="selected_item.title"></h1>
         </md-toolbar>
         <md-content>
-            <md-content>
-                <form>
-                    <div class="notes_container">
-                        <md-input-container>
-                            <label for="listening_notes">Listening Notes</label>
-                            <textarea type="text" id="listening_notes" ng-model="selected_item.listening_notes"></textarea>
-                        </md-input-container>
-                        <div id="rating_container" layout="row">
-                            <label flex="33">Rating</label> <rating id="rating" rating-value="selected_item.rating" flex="66"></rating>
-                        </div>
-                        <div id="checkbox_container" layout="row">
-                            <label>To Download:
-                                <input type="checkbox" ng-model="selected_item.to_download">
-                            </label>
-                            <label>Downloaded:
-                                <input type="checkbox" ng-model="selected_item.downloaded">
-                            </label>
-                        </div>
-                        <div layout="row" layout-align="center center">
-                            <md-button class="md-raised md-warn" ng-click="delete()">Delete</md-button>
-                            <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
-                        </div>
+            <form>
+                <md-input-container>
+                    <label for="listening_notes">Listening Notes</label>
+                    <textarea type="text" id="listening_notes" ng-model="selected_item.listening_notes"></textarea>
+                </md-input-container>
+                <div id="rating_container" layout="row">
+                    <label flex="33">Rating</label>
+                    <rating id="rating" rating-value="selected_item.rating" flex="66"></rating>
+                </div>
+                <div id="checkbox_container" layout="row">
+                    <label>To Download:
+                        <input type="checkbox" ng-model="selected_item.to_download">
+                    </label>
+                    <label>Downloaded:
+                        <input type="checkbox" ng-model="selected_item.downloaded">
+                    </label>
+                </div>
+                <div layout="row" layout-align="center center">
+                    <md-button class="md-raised md-warn" ng-click="delete()">Delete</md-button>
+                    <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+                </div>
+            </form>
+            <md-card ng-if="selected_item.notes">
+                <md-card-content>
+                    <div id="sleeve_notes">
+                        <pre ng-bind="selected_item.notes"></pre>
                     </div>
-                </form>
-                <md-card ng-if="selected_item.notes">
-                    <md-card-content>
-                        <div id="sleeve_notes">
-                            <pre ng-bind="selected_item.notes"></pre>
-                        </div>
-                    </md-card-content>
-                </md-card>
-            </md-content>
+                </md-card-content>
+            </md-card>
         </md-content>
     </md-sidenav>
 </div>

@@ -14,9 +14,7 @@
         </div>
     </div>
 
-    <div class="sleeve_notes">
-        <pre ng-bind="record.listening_notes"></pre>
-    </div>
+    <pre ng-show="record.listening_notes" ng-bind="record.listening_notes"></pre>
 
     <md-list class="track_list" ng-if="is_expanded">
         <track ng-repeat='track in record.tracklist'></track>

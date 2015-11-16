@@ -13,9 +13,7 @@
         </div>
     </div>
 
-    <div class="sleeve_notes">
-        <pre ng-bind="track.listening_notes"></pre>
-    </div>
+    <pre ng-show="track.listening_notes" ng-bind="track.listening_notes"></pre>
 
     <md-divider ng-if="!$last"></md-divider>
 </md-list-item>

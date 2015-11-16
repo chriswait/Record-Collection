@@ -1,36 +1,28 @@
-md-backdrop, md-sidenav {
-    position: fixed;
-}
+panel {
+    & md-backdrop, & md-sidenav {
+        position: fixed;
+    }
 
-#rating_container {
-    align-items: center;
-    padding: 0px 6px;
-    padding-bottom: 26px;
-    color: rgba(0,0,0,0.26);
-}
+    & form {
+        margin: 10px;
+        & md-input-container {
+            width: 100%;
+        }
+    }
 
-#checkbox_container {
-    padding: 0px 6px;
-    color: rgba(0,0,0,0.26);
-
-    & label {
+    & #rating_container {
+        align-items: center;
+        margin: 0px 6px;
         padding-bottom: 26px;
+        color: rgba(0,0,0,0.26);
+    }
+
+    & #checkbox_container {
+        padding: 0px 6px;
+        color: rgba(0,0,0,0.26);
+
+        & label {
+            padding-bottom: 26px;
+        }
     }
 }
-
-
-.notes_container {
-    padding: 10px;
-    margin: 10px 0px;
-
-    & #save_button_container {
-        padding-bottom: 0;
-    }
-}
-
-#sleeve_notes {
-    & pre {
-        white-space: pre-wrap;
-    }
-}
-
