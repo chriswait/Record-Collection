@@ -1,0 +1,7 @@
+.expand  pre {
+    max-height: 30px;
+    overflow: hidden;
+}
+.expanded  pre {
+    max-height: initial;
+}

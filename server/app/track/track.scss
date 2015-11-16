@@ -1,10 +1,12 @@
 .track {
     align-items: stretch;
     padding: 0px 10px;
-
     & .track_details {
         & .position, & .title, & .duration {
             padding: 0px 10px;
         }
+    }
+    & pre {
+        margin-top: 0px;
     }
 }

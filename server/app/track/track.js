@@ -7,6 +7,7 @@ angular.module("recordApp")
     };
 })
 .controller("TrackController", ['$scope','panel', function($scope, panel) {
+    $scope.is_expanded = false;
     $scope.panel = function(event) {
         event.stopPropagation();
         panel.open_item($scope);

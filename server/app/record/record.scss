@@ -1,22 +1,14 @@
 .record {
     align-items: stretch !important;
     padding: 5px 10px;
-
-    &:focus, &:active {
-        outline: none !important;
-    }
-
     & .thumb {
         width: 80px;
         height: 80px;
     }
-
     & .record_details {
         padding: 0px 10px;
     }
-    & .sleeve_notes {
-        padding: 0px 10px;
+    & .track_list {
+        padding: 0px;
     }
 }
-
-

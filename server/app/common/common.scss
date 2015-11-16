@@ -1,6 +1,7 @@
+*:focus {
+    outline: none;
+}
 pre {
     white-space: pre-wrap;
     margin: 5px 10px;
-    overflow: hidden;
-    max-height: 30px;
 }
