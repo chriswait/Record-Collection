@@ -1,3 +1,6 @@
 <div class="expand" ng-show="content" ng-class="{expanded: expanded}">
     <pre ng-bind="content"></pre>
+    <div class="expand_arrow" layout="row" layout-align="center">
+        <ng-md-icon ng-show="!expanded" icon="arrow_drop_down"></ng-md-icon>
+    </div>
 </div>

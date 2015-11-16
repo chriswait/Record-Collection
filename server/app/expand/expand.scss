@@ -5,3 +5,10 @@
 .expanded  pre {
     max-height: initial;
 }
+
+.expand_arrow {
+    margin-top: -10px;
+    & ng-md-icon {
+        color: grey;
+    }
+}
