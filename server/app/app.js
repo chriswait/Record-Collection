@@ -5,7 +5,7 @@ app.controller("MainController", ["CollectionService", function(CollectionServic
 .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
     .primaryPalette('brown')
-    .accentPalette('deep-orange')
+    .accentPalette('orange')
     ;
 /*
     .warnPalette('')
