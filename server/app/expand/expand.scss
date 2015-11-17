@@ -1,14 +1,10 @@
-.expand  pre {
-    max-height: 30px;
-    overflow: hidden;
-}
-.expanded  pre {
-    max-height: initial;
-}
-
 .expand_arrow {
     margin-top: -10px;
-    & ng-md-icon {
+    ng-md-icon {
         color: grey;
     }
+}
+.expand {
+    overflow: hidden;
+    transition: max-height 0.5s;
 }
