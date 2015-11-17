@@ -6,12 +6,11 @@ angular.module("recordApp")
     };
 })
 .factory("FilterService", function() {
-    var sort_keys = ["title", "rating", "year"];
+    var sort_keys = ["title", "year"];
     var sort_order = "";
     var filter_text = "";
     var filters = {
         to_download: false,
-        unrated: false,
     };
     return {
         filter_options: {
@@ -27,9 +26,6 @@ angular.module("recordApp")
     var should_include_record = function(record) {
         // Check filters
         if (filters.to_download && (!record.to_download || record.downloaded)) {
-            return false;
-        }
-        if (filters.unrated && (record.rating !== null)) {
             return false;
         }
 
