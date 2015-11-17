@@ -7,7 +7,13 @@
             </md-input-container>
         </div>
         <div>
-            <md-button class='md-raised' ng-class="{'md-accent' : sort_key==filter_options.sort_order}" ng-repeat="sort_key in filter_options.sort_keys" ng-click="select_tab(sort_key)" value="{{sort_key}}">{{sort_key | capitalize}}</md-button>
+            <md-button class='md-raised' ng-class="{'md-accent' : sort_key==filter_options.sort_order}"
+                ng-repeat="sort_key in filter_options.sort_keys"
+                ng-click="select_tab(sort_key)"
+                value="{{sort_key}}" 
+                aria-label="{{sort_key}}" >
+                {{sort_key | capitalize}}
+            </md-button>
         </div>
         <div layout="row" layout-sm="column">
             <md-switch ng-model="filter_options.filters.to_download">To Download</md-switch>

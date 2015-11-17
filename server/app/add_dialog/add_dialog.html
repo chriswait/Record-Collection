@@ -1,4 +1,4 @@
-<md-dialog ng-controller="AddDialogController">
+<md-dialog ng-controller="AddDialogController" aria-label="add item dialog">
     <md-dialog-content class="add_dialog">
         <md-autocomplete
             placeholder="Record name"
@@ -28,7 +28,15 @@
             </div>
         </div>
     </md-dialog-content>
-    <div class="md-actions" layout="row">
-        <md-button id="add_button" class="md-accent md-raised" ng-disabled="!search_object.selected_item.title" ng-click="add_selected_item();">Add Item</md-button>
-    </div>
+    <md-dialog-actions layout="row">
+        <md-button
+            id="add_button"
+            class="md-accent md-raised"
+            ng-disabled="!search_object.selected_item.title"
+            ng-click="add_selected_item();"
+            aria-label="Add item"
+        >
+            Add Item
+        </md-button>
+    </md-dialog-actions>
 </md-dialog>
