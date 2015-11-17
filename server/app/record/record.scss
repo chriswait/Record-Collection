@@ -1,3 +1,7 @@
+.expand {
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
 .record {
     align-items: stretch !important;
     padding: 5px 10px;
