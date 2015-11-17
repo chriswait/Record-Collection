@@ -8,7 +8,7 @@ angular.module("recordApp")
         link: function(scope, element) {
             var expanding_element;
             var expanded_height;
-            scope.is_expanded = true
+            scope.is_expanded = true;
 
             var get_current_height = function() {
                 if (typeof expanding_element == "undefined") return undefined;
