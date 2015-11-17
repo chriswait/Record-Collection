@@ -26,10 +26,12 @@ angular.module("recordApp")
     var filters, filter_text;
     var should_include_record = function(record) {
         // Check filters
-        if (filters.to_download && (!record.to_download || record.downloaded))
+        if (filters.to_download && (!record.to_download || record.downloaded)) {
             return false;
-        if (filters.unrated && record.rating != null)
+        }
+        if (filters.unrated && (record.rating !== null)) {
             return false;
+        }
 
         if (!filter_text) return true;
         // Break search into words, search title, year and artists
