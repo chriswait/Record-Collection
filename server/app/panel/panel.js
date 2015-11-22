@@ -48,7 +48,7 @@ angular.module("recordApp")
         var url = '/update_item';
         $http({
             url: url,
-            method: "GET",
+            method: "POST",
             params: $scope.selected_item,
         }).then(function(response) {
             panel.close();
@@ -60,7 +60,7 @@ angular.module("recordApp")
         var url = '/delete_record';
         $http({
             url: url,
-            method: "GET",
+            method: "POST",
             params: $scope.selected_item,
         }).then(function(response) {
             if (response.data.status==1) {

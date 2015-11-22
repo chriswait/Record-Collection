@@ -1,14 +1,13 @@
 var app = angular.module("recordApp", ['templates','ngMaterial','ngMdIcons']);
-app.controller("MainController", ["CollectionService", function(CollectionService, $mdThemingProvider) {
+app.controller("MainController", ["CollectionService", function(CollectionService) {
     CollectionService.load_collection();
 }])
 .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
     .primaryPalette('brown')
-    .accentPalette('orange')
-    ;
-/*
-    .warnPalette('')
-    .backgroundPalette('')
-*/
+    .accentPalette('orange');
+})
+.config(function($httpProvider) {
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 });

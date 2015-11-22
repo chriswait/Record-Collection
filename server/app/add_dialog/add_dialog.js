@@ -14,7 +14,7 @@ angular.module("recordApp")
         };
         $http({
             url: "/add_record",
-            method: "GET",
+            method: "POST",
             params: data
         }).then(function(response) {
             $mdDialog.hide(response.data);
@@ -29,7 +29,7 @@ angular.module("recordApp")
         };
         $http({
             url: "/search",
-            method: "GET",
+            method: "POST",
             params: data
         }).then(function(response) {
             defer.resolve(response.data.results);
