@@ -51,8 +51,8 @@ angular.module("recordApp")
             method: "GET",
             params: $scope.selected_item,
         }).then(function(response) {
-            $scope.selected_item = response.data;
             panel.close();
+        }, function(failure) {
         });
     };
 
