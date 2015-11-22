@@ -17,8 +17,10 @@ angular.module("recordApp")
 
             var resize_expanding_section = function() {
                 if (scope.expand) {
+                    element[0].style.opacity = 1;
                     element[0].style.maxHeight = expanded_height;
                 } else {
+                    element[0].style.opacity = 0;
                     element[0].style.maxHeight = unexpanded_height + "px";
                 }
             };
