@@ -18,7 +18,6 @@ angular.module("recordApp")
         .then(function(success_response) {
             collection.records = success_response.data;
         }, function(failure_response) {
-            console.log(failure_response);
         });
     };
 

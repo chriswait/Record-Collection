@@ -51,7 +51,6 @@ angular.module("recordApp")
             $timeout(function() {
                 store_current_expanded_height();
                 scope.expand = false;
-                console.log("expand DONE");
             }, 0);
         },
     };

@@ -51,7 +51,6 @@ angular.module("recordApp")
             method: "GET",
             params: $scope.selected_item,
         }).then(function(response) {
-            console.log(response);
             $scope.selected_item = response.data;
             panel.close();
         });
@@ -64,7 +63,6 @@ angular.module("recordApp")
             method: "GET",
             params: $scope.selected_item,
         }).then(function(response) {
-            console.log(response);
             if (response.data.status==1) {
                 CollectionService.remove_item_from_collection($scope.selected_item);
                 panel.close();
