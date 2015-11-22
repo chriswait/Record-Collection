@@ -17,7 +17,6 @@ class Record(DiscogsModel):
     downloaded = models.NullBooleanField()
 
     listening_notes = models.TextField(null=True)
-    rating = models.IntegerField(null=True)
 
     def __str__(self):
         return "%s (%s)" % (self.title, self.year)
@@ -29,7 +28,6 @@ class Artist(DiscogsModel):
     name = models.CharField(max_length=200)
 
     listening_notes = models.TextField(null=True)
-    rating = models.IntegerField(null=True)
 
     def __str__(self):
         return "%s" % (self.name)
@@ -41,7 +39,6 @@ class Track(models.Model):
     position = models.CharField(max_length=20)
 
     listening_notes = models.TextField(null=True)
-    rating = models.IntegerField(null=True)
 
     def __str__(self):
         return "%s | %s | %s" % (self.position, self.title, self.duration)

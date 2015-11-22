@@ -42,7 +42,6 @@ def update_item(request):
     
     # update the item
     if (request.GET.get('listening_notes') != None): item.listening_notes = request.GET.get('listening_notes')
-    if (request.GET.get('rating') != None): item.rating = request.GET.get('rating')
     if (type=="record"):
         if (request.GET.get('to_download') != None):
             item.to_download = (request.GET.get('to_download')=="true")
