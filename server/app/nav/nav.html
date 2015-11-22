@@ -6,16 +6,19 @@
             </md-button>
             <h2><span>Collection</span></h2>
             <span flex></span>
-            <div class="filter_button" layout="row" ng-click="show_filters = !show_filters;">Filters
+            <md-button class="filter_button" layout="row" ng-click="show_filters = !show_filters;">Filters
                 <ng-md-icon ng-show="!show_filters" icon="arrow_drop_down" style="fill:white;" aria-label="expand">
                 </ng-md-icon>
                 <ng-md-icon ng-show="show_filters" icon="arrow_drop_up" style="fill:white;" aria-label="collapse">
                 </ng-md-icon>
-            </div>
+            </md-button>
             <md-button class="md-icon-button" aria-label="Settings" ng-click="show_add_dialog();" aria-label="add">
                 <ng-md-icon icon="add_box" style="fill:white;"></ng-md-icon>
             </md-button>
         </div>
     </md-toolbar>
-    <filter ng-show="show_filters"></filter>
+    <div class="expand" expand="show_filters">
+        <filter>
+        </filter>
+    </div>
 </div>

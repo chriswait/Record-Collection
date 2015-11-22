@@ -1,5 +1,5 @@
 <md-list-item class="record md-3-line" layout="column" ng-controller='RecordController'>
-    <div layout="row" ng-click="toggle()">
+    <div layout="row" ng-click="is_expanded = !is_expanded">
         <img class="thumb" ng-src='{{record.thumb}}' />
         <div class="record_details md-list-item-text" flex layout="column">
             <h3 ng-bind="record.title"></h3>
@@ -17,12 +17,12 @@
         </div>
     </div>
 
-    <expand class="expand">
+    <div class="expand" expand="is_expanded">
         <pre ng-bind="record.listening_notes"></pre>
         <md-list class="track_list">
             <track ng-repeat='track in record.tracklist'></track>
         </md-list>
-    </expand>
+    </div>
 
     <md-divider></md-divider>
 </md-list-item>

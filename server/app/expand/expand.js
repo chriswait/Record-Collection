@@ -3,49 +3,54 @@ angular.module("recordApp")
 .directive("expand", function($timeout, $window) {
     var unexpanded_height = 0;
     return {
-        templateUrl: "expand/expand.html",
-        transclude: true,
+        restrict: "A",
+        scope: {
+            expand: '=',
+        },
         link: function(scope, element) {
-            var expanding_element;
             var expanded_height;
-            scope.is_expanded = true;
 
-            var get_current_height = function() {
-                if (typeof expanding_element == "undefined") return undefined;
-                var height = expanding_element[0].getBoundingClientRect().height;
-                return height;
+            var store_current_expanded_height = function() {
+                var height = element[0].getBoundingClientRect().height;
+                expanded_height = height;
             };
 
             var resize_expanding_section = function() {
-                if (scope.is_expanded) {
-                    expanding_element[0].style.maxHeight = expanded_height;
+                if (scope.expand) {
+                    element[0].style.maxHeight = expanded_height;
                 } else {
-                    expanding_element[0].style.maxHeight = unexpanded_height + "px";
+                    element[0].style.maxHeight = unexpanded_height + "px";
                 }
             };
-
-            scope.toggle = function() {
-                scope.is_expanded = !scope.is_expanded;
-                resize_expanding_section();
-            };
-
-            $timeout(function() {
-                expanding_element = angular.element(element[0]);
-                expanded_height = get_current_height();
-                scope.toggle();
-            });
 
             scope.$watch(
                 function() {
                    return $window.innerWidth;
                 }, function(value) {
-                    if (typeof expanding_element !== "undefined" && scope.is_expanded) {
-                        expanding_element[0].style.maxHeight = "initial";
-                        expanded_height = get_current_height();
-                        expanding_element[0].style.maxHeight = expanded_height;
+                    if (typeof element !== "undefined" && scope.expand) {
+                        element[0].style.maxHeight = "initial";
+                        store_current_expanded_height();
+                        element[0].style.maxHeight = expanded_height;
                     }
                 }
             );
+
+            scope.$watch(
+                function() {
+                   return scope.expand;
+                }, function(newValue, oldValue) {
+                    if (newValue !== oldValue) {
+                        resize_expanding_section();
+                    }
+                }
+            );
+
+            // On first load, collapse after measuring height
+            $timeout(function() {
+                store_current_expanded_height();
+                scope.expand = false;
+                console.log("expand DONE");
+            }, 0);
         },
     };
 });
