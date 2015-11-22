@@ -49,7 +49,7 @@ angular.module("recordApp")
         $http({
             url: url,
             method: "POST",
-            params: $scope.selected_item,
+            data: $scope.selected_item,
         }).then(function(response) {
             panel.close();
         }, function(failure) {
@@ -61,7 +61,7 @@ angular.module("recordApp")
         $http({
             url: url,
             method: "POST",
-            params: $scope.selected_item,
+            data: $scope.selected_item,
         }).then(function(response) {
             if (response.data.status==1) {
                 CollectionService.remove_item_from_collection($scope.selected_item);

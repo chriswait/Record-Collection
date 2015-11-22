@@ -8,6 +8,7 @@ app.controller("MainController", ["CollectionService", function(CollectionServic
     .accentPalette('orange');
 })
 .config(function($httpProvider) {
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
 });
