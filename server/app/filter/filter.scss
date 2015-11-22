@@ -1,3 +1,16 @@
 #filters {
     padding: 0px 10px;
+    background-color: #A1887F;
+    color: white;
+    border-bottom: 2px solid #E65100;
+    & md-input-container {
+        & label {
+            left: 75px;
+        }
+        & .md-input {
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
 }
