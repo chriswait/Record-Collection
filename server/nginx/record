@@ -1,0 +1,23 @@
+server {
+    listen 80  default_server;
+    server_name _;
+    error_log /var/log/nginx/error.log;
+    return  444;
+}
+
+
+server {
+    listen 80;
+    server_name record.chriswait.net;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+
+    location /static/ {
+        autoindex on;
+        alias /home/ubuntu/Record-Collection/server/record/static/;
+    }
+
+    location / {
+        proxy_pass http://localhost:8001;
+    }
+}
